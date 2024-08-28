@@ -1,0 +1,4 @@
+public int i = 0;
+j = 1B;
+k = A;
+
