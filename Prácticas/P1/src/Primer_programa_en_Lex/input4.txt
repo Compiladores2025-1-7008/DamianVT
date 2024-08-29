@@ -1,0 +1,6 @@
+public int i=0;
+j=1;
+k=A;
+l=a1;
+m=0x123AF;
+String miCadena="Hola";
