@@ -7,22 +7,19 @@
 %public
 %class Lexer
 %standalone
-
 digito=[0-9]
 letra=[a-zA-Z]
-hexadeciaml =[0-9a-fA-F]
-palabra={letra}+
+hexa =[0-9a-fA-F]
+p_reservadas=("public"|"private"|"protected"|"static"|"final"|"void"|"int")
 identificador = {letra}({letra}|{digito}|_){0,31}
 espacio=[ \t\n]
+hexadecimal=0[xX]{hexa}+
 
 %%
 
 {espacio}+  { System.out.println("Encontré un espacio: " + yytext()+"\n"); }
-/* La acción léxica puede ir vacía si queremos que el
-escáner ignore la regla */ 
-0[xX]{hexadeciaml}+ { System.out.println("Encontré un hexadecimal: " + yytext()+"\n"); }
-"public"|"private"|"protected"|"static"|"final" { System.out.println("Encontré una palabra reservada: " + yytext()+"\n"); }
-{identificador} { System.out.println("Encontré un identificador válido: " + yytext()+"\n"); }
+{hexadecimal} { System.out.println("Encontré un hexadecimal: " + yytext()+"\n"); }
 {digito}+ { System.out.println("Encontré un número: " + yytext()+"\n"); }
-{palabra} { System.out.println("Encontré una palabra: " + yytext()+"\n"); }
-
+{p_reservadas} { System.out.println("Encontré una palabra reservada: " + yytext()+"\n"); }
+{identificador} { System.out.println("Encontré un identificador válido: " + yytext()+"\n"); }
+{letra}+ { System.out.println("Encontré una palabra: " + yytext()+"\n"); }
