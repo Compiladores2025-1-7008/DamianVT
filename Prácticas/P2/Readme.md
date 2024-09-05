@@ -71,7 +71,7 @@ $ java -cp build main.jflex.Lexer input.txt
 
 #### Ejercicios
 1. Describir el conjunto de terminales en y la expresión regular que reconoce a cada uno  en _lexer.flex_. (4 pts)
-2. Generar acciones léxicas para cada terminal de nuestro lenguaje en _Lexer.cpp_, de modo que se muestre en pantalla la salida esperada con el archivo _prueba.txt_. (4 pts)
+2. Generar acciones léxicas para cada terminal de nuestro lenguaje en _Lexer.java_, de modo que se muestre en pantalla la salida esperada con el archivo _prueba.txt_. (4 pts)
 3. Crear un _build.xml_ para Java Ant que suplemente los pasos de compilación y ejecución descritos. (2 pt)
 
 ---
@@ -79,7 +79,6 @@ $ java -cp build main.jflex.Lexer input.txt
 4. Modificar lo necesario para producir una salida que considere no guardar lexemas que son los únicos miembros de su clase léxica. (0.5 pts.)
 5. Documentar el código. (0.25 pts.)
 6. Proponer 4 archivos de prueba nuevos, 2 válidos y 2 inválidos. (0.25 pts.)
->>>>>>> 67e681d98202598642746859c1649c5e705560de
 
 
 
