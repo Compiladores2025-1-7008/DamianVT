@@ -1,0 +1,41 @@
+<project name="Lexer" default="run">
+
+  <!-- Propiedades -->
+  <property name="src.dir" value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="jflex.dir" value="${src.dir}/main/jflex"/>
+  <property name="main.class" value="main.jflex.Lexer"/>
+  <property name="test.dir" value="${src.dir}/tst"/>
+
+  <!-- Tarea de compilación de JFlex -->
+  <target name="jflex">
+    <exec dir="${jflex.dir}" executable="jflex.bat">
+      <arg value="-d"/>
+      <arg value="${jflex.dir}"/>
+      <arg value="Lexer.flex"/>
+    </exec>
+  </target>
+
+  <!-- Tarea de compilación de Java -->
+  <target name="compile" depends="jflex">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${build.dir}" sourcepath="${src.dir}">
+      <include name="main/jflex/Lexer.java"/>
+    </javac>
+  </target>
+
+  <!-- Tarea de ejecución -->
+  <target name="run" depends="compile">
+    <input message="Ingrese el nombre del archivo de prueba (.txt):" addproperty="test.file"/>
+    <property name="test.file.path" value="${test.dir}/${test.file}"/>
+    <java classname="${main.class}" fork="true" classpath="${build.dir}">
+      <arg value="${test.file.path}"/>
+    </java>
+  </target>
+
+  <!-- Tarea de limpieza -->
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+  </target>
+
+</project>

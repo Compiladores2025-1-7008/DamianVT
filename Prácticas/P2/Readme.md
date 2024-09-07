@@ -37,7 +37,7 @@ $ javac --source-path src -d build src/main/jflex/Lexer.java
 #### Ejecución
 
 ```bash
-$ java -cp build main.jflex.Lexer input.txt  
+$ java -cp build main.jflex.Lexer src/tst/prueba.txt  
 ```
 
 
@@ -70,7 +70,7 @@ $ java -cp build main.jflex.Lexer input.txt
 
 
 #### Ejercicios
-1. Describir el conjunto de terminales en y la expresión regular que reconoce a cada uno  en _lexer.flex_. (4 pts)
+1. Describir el conjunto de terminales en y la expresión regular que reconoce a cada uno  en _ClaseLexica.java_ y _Lexer.flex_. (4 pts)
 2. Generar acciones léxicas para cada terminal de nuestro lenguaje en _Lexer.java_, de modo que se muestre en pantalla la salida esperada con el archivo _prueba.txt_. (4 pts)
 3. Crear un _build.xml_ para Java Ant que suplemente los pasos de compilación y ejecución descritos. (2 pt)
 

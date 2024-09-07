@@ -68,7 +68,12 @@ public class Lexer {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\11\0\2\1\25\0\1\1\u01df\0";
+    "\11\0\2\1\25\0\1\1\7\0\1\2\1\3\1\0"+
+    "\1\4\1\5\1\4\1\6\1\0\12\7\1\0\1\10"+
+    "\5\0\4\11\1\12\25\11\4\0\1\11\1\0\1\13"+
+    "\3\11\1\14\1\15\1\11\1\16\1\17\2\11\1\20"+
+    "\1\11\1\21\1\22\3\11\1\23\1\24\2\11\1\25"+
+    "\3\11\u0185\0";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[512];
@@ -95,10 +100,12 @@ public class Lexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2";
+    "\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
+    "\5\10\2\0\2\10\1\11\2\10\1\6\1\0\1\6"+
+    "\2\10\1\12\1\10\1\13\2\10\1\14\1\15";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[3];
+    int [] result = new int[32];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -123,10 +130,13 @@ public class Lexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\2\0\2";
+    "\0\0\0\26\0\26\0\26\0\26\0\26\0\54\0\26"+
+    "\0\102\0\130\0\156\0\204\0\232\0\260\0\306\0\334"+
+    "\0\362\0\102\0\u0108\0\u011e\0\u0134\0\u014a\0\u014a\0\u0160"+
+    "\0\u0176\0\102\0\u018c\0\102\0\u01a2\0\u01b8\0\102\0\102";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[3];
+    int [] result = new int[32];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -149,10 +159,25 @@ public class Lexer {
   private static final int [] ZZ_TRANS = zzUnpacktrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\2\0";
+    "\1\2\1\3\1\4\1\5\1\2\1\6\1\2\1\7"+
+    "\1\10\3\11\1\12\1\13\1\11\1\14\5\11\1\15"+
+    "\34\0\1\16\1\7\2\0\1\17\1\0\1\17\20\0"+
+    "\1\11\1\0\15\11\7\0\1\11\1\0\7\11\1\20"+
+    "\5\11\7\0\1\11\1\0\7\11\1\21\5\11\7\0"+
+    "\1\11\1\0\4\11\1\22\3\11\1\23\4\11\7\0"+
+    "\1\11\1\0\5\11\1\24\7\11\7\0\1\25\22\0"+
+    "\1\26\2\0\1\27\25\0\1\11\1\0\12\11\1\30"+
+    "\2\11\7\0\1\11\1\0\11\11\1\31\3\11\7\0"+
+    "\1\11\1\0\13\11\1\32\1\11\7\0\1\11\1\0"+
+    "\6\11\1\33\6\11\7\0\1\25\2\0\1\17\1\0"+
+    "\1\17\20\0\1\27\25\0\1\11\1\0\3\11\1\34"+
+    "\11\11\7\0\1\11\1\0\2\11\1\35\12\11\7\0"+
+    "\1\11\1\0\7\11\1\36\5\11\7\0\1\11\1\0"+
+    "\13\11\1\37\1\11\7\0\1\11\1\0\3\11\1\40"+
+    "\11\11";
 
   private static int [] zzUnpacktrans() {
-    int [] result = new int[4];
+    int [] result = new int[462];
     int offset = 0;
     offset = zzUnpacktrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -195,10 +220,11 @@ public class Lexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\2\11";
+    "\1\0\5\11\1\1\1\11\5\1\2\0\6\1\1\0"+
+    "\12\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[3];
+    int [] result = new int[32];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -640,12 +666,67 @@ public Token actual;
             { System.out.print(yytext());
             }
           // fall through
-          case 3: break;
+          case 14: break;
           case 2:
             { /* La acción léxica puede ir vacía si queremos que el escáner ignore la regla */
             }
           // fall through
-          case 4: break;
+          case 15: break;
+          case 3:
+            { System.out.println(new Token(ClaseLexica.LPAR,yytext()));
+            }
+          // fall through
+          case 16: break;
+          case 4:
+            { System.out.println(new Token(ClaseLexica.RPAR,yytext()));
+            }
+          // fall through
+          case 17: break;
+          case 5:
+            { System.out.println(new Token(ClaseLexica.COMA,yytext()));
+            }
+          // fall through
+          case 18: break;
+          case 6:
+            { System.out.println(new Token(ClaseLexica.NUMERO,yytext()));
+            }
+          // fall through
+          case 19: break;
+          case 7:
+            { System.out.println(new Token(ClaseLexica.PYC,yytext()));
+            }
+          // fall through
+          case 20: break;
+          case 8:
+            { System.out.println(new Token(ClaseLexica.ID,yytext()));
+            }
+          // fall through
+          case 21: break;
+          case 9:
+            { System.out.println(new Token(ClaseLexica.IF,yytext()));
+            }
+          // fall through
+          case 22: break;
+          case 10:
+            { System.out.println(new Token(ClaseLexica.INT,yytext()));
+            }
+          // fall through
+          case 23: break;
+          case 11:
+            { System.out.println(new Token(ClaseLexica.ELSE,yytext()));
+            }
+          // fall through
+          case 24: break;
+          case 12:
+            { System.out.println(new Token(ClaseLexica.FLOAT,yytext()));
+            }
+          // fall through
+          case 25: break;
+          case 13:
+            { System.out.println(new Token(ClaseLexica.WHILE,yytext()));
+            }
+          // fall through
+          case 26: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
