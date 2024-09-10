@@ -1,0 +1,7 @@
+int x;
+float y;
+if (x > y) {
+    while (x < 10) {
+        x++;
+    }
+}
