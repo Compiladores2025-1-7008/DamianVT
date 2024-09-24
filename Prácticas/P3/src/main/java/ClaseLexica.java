@@ -17,6 +17,6 @@ public class ClaseLexica {
     public static final int LPAR = 14;
     public static final int RPAR = 15;
     public static final int COMA = 16;
-    public static final int EOF = 0;
+    //public static final int EOF = 0;
     //Agregar los simbolos terminales, el valor es a tu elección.
 }
