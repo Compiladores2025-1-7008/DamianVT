@@ -733,37 +733,37 @@ public int getLine() { return yyline; }
           // fall through
           case 22: break;
           case 4:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.LPAR;
+            { System.out.println("Encontramos una palabra reservada '('"); return ClaseLexica.LPAR;
             }
           // fall through
           case 23: break;
           case 5:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.RPAR;
+            { System.out.println("Encontramos una palabra reservada ')'"); return ClaseLexica.RPAR;
             }
           // fall through
           case 24: break;
           case 6:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.MULT;
+            { System.out.println("Encontramos una palabra reservada '*'"); return ClaseLexica.MULT;
             }
           // fall through
           case 25: break;
           case 7:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.SUMA;
+            { System.out.println("Encontramos una palabra reservada '+'"); return ClaseLexica.SUMA;
             }
           // fall through
           case 26: break;
           case 8:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.COMA;
+            { System.out.println("Encontramos una palabra reservada ','"); return ClaseLexica.COMA;
             }
           // fall through
           case 27: break;
           case 9:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.RESTA;
+            { System.out.println("Encontramos una palabra reservada '-'"); return ClaseLexica.RESTA;
             }
           // fall through
           case 28: break;
           case 10:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.DIV;
+            { System.out.println("Encontramos una palabra reservada '/'"); return ClaseLexica.DIV;
             }
           // fall through
           case 29: break;
@@ -773,12 +773,12 @@ public int getLine() { return yyline; }
           // fall through
           case 30: break;
           case 12:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.PYC;
+            { System.out.println("Encontramos una palabra reservada ';'"); return ClaseLexica.PYC;
             }
           // fall through
           case 31: break;
           case 13:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.ASIG;
+            { System.out.println("Encontramos una palabra reservada '='"); return ClaseLexica.ASIG;
             }
           // fall through
           case 32: break;
@@ -788,27 +788,27 @@ public int getLine() { return yyline; }
           // fall through
           case 33: break;
           case 15:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.IF;
+            { System.out.println("Encontramos una palabra reservada IF"); return ClaseLexica.IF;
             }
           // fall through
           case 34: break;
           case 16:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.INT;
+            { System.out.println("Encontramos una palabra reservada INT"); return ClaseLexica.INT;
             }
           // fall through
           case 35: break;
           case 17:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.ELSE;
+            { System.out.println("Encontramos una palabra reservada ELSE"); return ClaseLexica.ELSE;
             }
           // fall through
           case 36: break;
           case 18:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.FLOAT;
+            { System.out.println("Encontramos una palabra reservada FLOAT"); return ClaseLexica.FLOAT;
             }
           // fall through
           case 37: break;
           case 19:
-            { System.out.println("Encontramos una palabra reservada"); return ClaseLexica.WHILE;
+            { System.out.println("Encontramos una palabra reservada WHILE"); return ClaseLexica.WHILE;
             }
           // fall through
           case 38: break;
