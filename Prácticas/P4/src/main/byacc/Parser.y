@@ -7,6 +7,10 @@
 
 /* YACC Declarations */
 %token NUM NL
+%left '-' '+'
+%left '*' '/'
+%left NEG /* negation--unary minus */
+%right '^' /* exponentiation */
 
  /* Grammar follows */
 %%
@@ -17,6 +21,17 @@ input: /* empty string */
 line: NL
 | NUM { System.out.println(" " + $1.dval + " "); }
 ;
+
+exp: NUM { $$ = $1; }
+| exp '+' exp { $$ = new ParserVal($1.dval + $3.dval); }
+| exp '-' exp { $$ = new ParserVal($1.dval - $3.dval); }
+| exp '*' exp { $$ = new ParserVal($1.dval * $3.dval); }
+| exp '/' exp { $$ = new ParserVal($1.dval / $3.dval); }
+| '-' exp %prec NEG { $$ = new ParserVal(-$2.dval); }
+| exp '^' exp { $$ = new ParserVal(Math.pow($1.dval, $3.dval)); }
+| '(' exp ')' { $$ = $2; }
+;
+
 
 %%
 

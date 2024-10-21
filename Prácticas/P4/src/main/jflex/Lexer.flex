@@ -7,6 +7,8 @@ import java.io.Reader;
 
 %%
 
+%byaccj
+
 %{
 
 private Parser yyparser;
@@ -26,16 +28,14 @@ public int getLine() { return yyline; }
 %unicode
 %line
 
-espacio=[ \t]
-entero=[0-9]+
+NUM=[0-9]+ ("." [0-9]+)?
+NL=\n|\r|\r\n
 
 
 %%
-
-{espacio}+ { }
-{entero} { yyparser.setYylval(new ParserVal(Double.parseDouble(yytext()))); return Parser.NUM; }
-"\n" { return Parser.NL; }
-
-//Aquí el resto de las definiciones
-<<EOF>> { return 0; }
-. { return -1; }
+"+" | "-" | "*" | "/" | "^" | "(" | ")" { return yytext().charAt(0); }
+{NUM} { yyparser.setYylval(new ParserVal(Double.parseDouble(yytext()))); return Parser.NUM; }
+{NL} { return Parser.NL; }
+[ \t] { /* ignore white space */ }
+\b {System.err.println("Illegal character: "+yytext()); return -1; }
+[^] {System.err.println("Illegal character: "+yytext()); return -1; }
