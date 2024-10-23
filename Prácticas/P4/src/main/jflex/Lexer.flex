@@ -33,7 +33,13 @@ NL=\n|\r|\r\n
 
 
 %%
-"+" | "-" | "*" | "/" | "^" | "(" | ")" { return yytext().charAt(0); }
+"+" { return Parser.SUMA; }
+"-" { return Parser.RESTA; }
+"*" { return Parser.MULT; }
+"/" { return Parser.DIV; }
+"^" { return Parser.EXP; }
+"(" { return Parser.LPAR; }
+")" { return Parser.RPAR; }
 {NUM} { yyparser.setYylval(new ParserVal(Double.parseDouble(yytext()))); return Parser.NUM; }
 {NL} { return Parser.NL; }
 [ \t] { /* ignore white space */ }

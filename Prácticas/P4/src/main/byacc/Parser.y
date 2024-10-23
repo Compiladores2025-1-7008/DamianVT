@@ -7,10 +7,12 @@
 
 /* YACC Declarations */
 %token NUM NL
-%left '-' '+'
-%left '*' '/'
+%token SUMA RESTA MULT DIV EXP NEG LPAR RPAR
+%left RESTA SUMA
+%left MULT DIV
+%right EXP /* exponentiation */
 %left NEG /* negation--unary minus */
-%right '^' /* exponentiation */
+%nonassoc LPAR RPAR
 
  /* Grammar follows */
 %%
@@ -19,17 +21,17 @@ input: /* empty string */
 ;
 
 line: NL
-| NUM { System.out.println(" " + $1.dval + " "); }
+| exp NL { System.out.println(" " + $1.dval + " "); }
 ;
 
 exp: NUM { $$ = $1; }
-| exp '+' exp { $$ = new ParserVal($1.dval + $3.dval); }
-| exp '-' exp { $$ = new ParserVal($1.dval - $3.dval); }
-| exp '*' exp { $$ = new ParserVal($1.dval * $3.dval); }
-| exp '/' exp { $$ = new ParserVal($1.dval / $3.dval); }
-| '-' exp %prec NEG { $$ = new ParserVal(-$2.dval); }
-| exp '^' exp { $$ = new ParserVal(Math.pow($1.dval, $3.dval)); }
-| '(' exp ')' { $$ = $2; }
+| exp SUMA exp { $$ = new ParserVal($1.dval + $3.dval); }
+| exp RESTA exp { $$ = new ParserVal($1.dval - $3.dval); }
+| exp MULT exp { $$ = new ParserVal($1.dval * $3.dval); }
+| exp DIV exp { $$ = new ParserVal($1.dval / $3.dval); }
+| RESTA exp %prec NEG { $$ = new ParserVal(-$2.dval); }
+| exp EXP exp { $$ = new ParserVal(Math.pow($1.dval, $3.dval)); }
+| LPAR exp RPAR { $$ = $2; }
 ;
 
 
@@ -68,7 +70,3 @@ int yylex()
   }
   return yyl_return;
 }
-
-
-
-
