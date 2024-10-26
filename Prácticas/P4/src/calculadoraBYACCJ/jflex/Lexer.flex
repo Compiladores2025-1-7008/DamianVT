@@ -1,7 +1,7 @@
-package main.jflex;
+package calculadoraBYACCJ.jflex;
 
-import main.byacc.Parser;
-import main.byacc.ParserVal;
+import calculadoraBYACCJ.byacc.Parser;
+import calculadoraBYACCJ.byacc.ParserVal;
 import java.io.Reader;
 
 
@@ -28,29 +28,20 @@ public int getLine() { return yyline; }
 %unicode
 %line
 
-ESP=[ \t\n]
-NUM = ([1-9]([0-9])*|0)+(\.[0-9]+)?([eE][+-]?[0-9]+)?
-ID = [a-zA-Z_][a-zA-Z0-9_]*
+NUM=[0-9]+ ("." [0-9]+)?
+NL=\n|\r|\r\n
 
 
 %%
-{ESP}+ { /* No hacer nada */ }
-"int" { return Parser.INT; }
-"float" { return Parser.FLOAT; }
-"if" { return Parser.IF; }
-"else" { return Parser.ELSE; }
-"while" { return Parser.WHILE; }
-{NUM} { yyparser.setYylval(new ParserVal(Double.parseDouble(yytext()))); return Parser.NUM; }
-{ID} { yyparser.setYylval(new ParserVal(Double.parseDouble(yytext()))); return Parser.ID; }
-";" { return Parser.PYC; }
-"=" { return Parser.ASIG; }
 "+" { return Parser.SUMA; }
 "-" { return Parser.RESTA; }
 "*" { return Parser.MULT; }
 "/" { return Parser.DIV; }
+"^" { return Parser.POW; }
 "(" { return Parser.LPAR; }
 ")" { return Parser.RPAR; }
-"," { return Parser.COMA; }
 {NUM} { yyparser.setYylval(new ParserVal(Double.parseDouble(yytext()))); return Parser.NUM; }
+{NL} { return Parser.NL; }
+[ \t] { /* ignore white space */ }
 \b {System.err.println("Illegal character: "+yytext()); return -1; }
 [^] {System.err.println("Illegal character: "+yytext()); return -1; }
